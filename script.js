@@ -1,5 +1,5 @@
 // ===============================
-// 🎮 GameLaunch 2025 - Script JS
+// 🎮 Game lance 2025 - Script JS
 // Autor: Erik do Amaral da Silva
 // ===============================
 
