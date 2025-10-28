@@ -1,58 +1,242 @@
-body {
-  background: linear-gradient(135deg, #000428, #004e92, #6a00f4);
-  background-attachment: fixed;
-  background-size: cover;
-  color: #f0f0f0;
-  font-family: 'Poppins', sans-serif;
+/* ===============================
+   🎮 GameLaunch 2025 - Estilos
+   Autor: Erik do Amaral da Silva
+   =============================== */
+
+/* Reset geral */
+* {
   margin: 0;
   padding: 0;
-  text-align: center;
+  box-sizing: border-box;
+  font-family: 'Poppins', sans-serif;
 }
 
-h1, h2, h3 {
+/* Corpo */
+body {
+  background: radial-gradient(circle at top, #050505, #000000);
+  color: #fff;
+  min-height: 100vh;
+  transition: background 0.4s, color 0.4s;
+}
+
+/* Cabeçalho */
+header {
+  background: rgba(0, 255, 255, 0.1);
+  border-bottom: 2px solid #00ffff;
+  padding: 15px 25px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  position: sticky;
+  top: 0;
+  z-index: 999;
+  backdrop-filter: blur(10px);
+}
+
+header h1 {
+  font-size: 24px;
   color: #00ffff;
-  text-shadow: 0 0 10px #00ffff, 0 0 20px #00ffff;
-}
-
-img {
-  width: 350px;
-  border-radius: 15px;
-  box-shadow: 0 0 15px rgba(0, 255, 255, 0.4);
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
-  margin: 20px 0;
-}
-
-img:hover {
-  transform: scale(1.05);
-  box-shadow: 0 0 25px rgba(0, 255, 255, 0.8);
-}
-
-p {
-  color: #d0d0d0;
-  font-size: 1.1em;
-}
-
-a {
-  color: #00ffff;
-  text-decoration: none;
-}
-
-a:hover {
   text-shadow: 0 0 10px #00ffff;
 }
 
-section {
-  background-color: rgba(0, 0, 0, 0.5);
-  border-radius: 20px;
-  box-shadow: 0 0 20px rgba(0, 255, 255, 0.2);
-  padding: 20px;
-  margin: 20px auto;
-  width: 80%;
-  max-width: 800px;
-  transition: transform 0.3s ease;
+/* Menu de navegação */
+nav a {
+  color: #fff;
+  text-decoration: none;
+  margin: 0 10px;
+  font-weight: 600;
+  transition: 0.3s;
 }
 
-section:hover {
-  transform: translateY(-5px);
-  box-shadow: 0 0 30px rgba(0, 255, 255, 0.4);
+nav a:hover {
+  color: #00ffff;
+  text-shadow: 0 0 10px #00ffff;
+}
+
+/* Títulos principais */
+h2 {
+  text-align: center;
+  margin: 30px 0;
+  color: #00ffff;
+  font-size: 28px;
+  text-shadow: 0 0 15px #00ffff;
+}
+
+/* Cards de conteúdo */
+.main-content, .news, .games {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 25px;
+  padding: 20px;
+}
+
+.card {
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid #00ffff44;
+  border-radius: 15px;
+  box-shadow: 0 0 15px #00ffff22;
+  width: 300px;
+  padding: 15px;
+  text-align: center;
+  transition: transform 0.3s, box-shadow 0.3s;
+}
+
+.card:hover {
+  transform: scale(1.05);
+  box-shadow: 0 0 25px #00ffff55;
+}
+
+.card img {
+  width: 100%;
+  height: 180px;
+  border-radius: 10px;
+  object-fit: cover;
+  margin-bottom: 10px;
+}
+
+.card h3 {
+  color: #00ffff;
+  margin-bottom: 8px;
+}
+
+/* Comunidade */
+.community {
+  text-align: center;
+  padding: 40px;
+}
+
+.community ul {
+  list-style: none;
+}
+
+.community a {
+  color: #00ffff;
+  text-decoration: none;
+  font-size: 18px;
+  display: block;
+  margin: 15px 0;
+  transition: 0.3s;
+}
+
+.community a:hover {
+  text-shadow: 0 0 15px #00ffff;
+}
+
+/* Página sobre */
+.about {
+  max-width: 600px;
+  margin: 0 auto;
+  text-align: center;
+  padding: 30px;
+}
+
+.about p {
+  margin-bottom: 15px;
+  line-height: 1.5;
+}
+
+/* Formulário de contato */
+form {
+  margin-top: 25px;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+input, textarea {
+  padding: 10px;
+  border: 1px solid #00ffff55;
+  border-radius: 8px;
+  background: rgba(255, 255, 255, 0.1);
+  color: #fff;
+}
+
+button {
+  background: #00ffff;
+  color: #000;
+  border: none;
+  padding: 10px 20px;
+  border-radius: 8px;
+  cursor: pointer;
+  font-weight: bold;
+  transition: 0.3s;
+}
+
+button:hover {
+  background: #00e0e0;
+  box-shadow: 0 0 20px #00ffff;
+}
+
+/* Botão voltar ao topo */
+#btnTopo {
+  position: fixed;
+  bottom: 25px;
+  right: 25px;
+  background-color: #00ffff;
+  color: #000;
+  border: none;
+  border-radius: 50%;
+  width: 45px;
+  height: 45px;
+  font-size: 22px;
+  cursor: pointer;
+  box-shadow: 0 0 10px #00ffff;
+  display: none;
+  transition: all 0.3s ease;
+  z-index: 999;
+}
+
+#btnTopo:hover {
+  transform: scale(1.2);
+  box-shadow: 0 0 20px #00ffff;
+}
+
+/* Botão modo escuro */
+#toggleTema {
+  background: none;
+  border: 2px solid #00ffff;
+  color: #00ffff;
+  font-size: 20px;
+  border-radius: 8px;
+  padding: 5px 10px;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+#toggleTema:hover {
+  background: #00ffff;
+  color: #000;
+}
+
+/* Tema escuro */
+.dark-mode {
+  background: linear-gradient(to bottom, #000000, #0a0a0a);
+  color: #fff;
+}
+
+.dark-mode header {
+  background: rgba(255, 255, 255, 0.05);
+  border-bottom: 2px solid #00ffff;
+}
+
+/* Responsividade */
+@media (max-width: 768px) {
+  nav {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+
+  .card {
+    width: 90%;
+  }
+
+  header h1 {
+    font-size: 20px;
+  }
+
+  #toggleTema {
+    font-size: 18px;
+  }
 }

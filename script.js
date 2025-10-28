@@ -1,41 +1,62 @@
-// ====== CONTAGEM REGRESSIVA ======
-document.querySelectorAll('.countdown').forEach(el => {
-  const targetDate = new Date(el.dataset.date).getTime();
+// ===============================
+// 🎮 GameLaunch 2025 - Script JS
+// Autor: Erik do Amaral da Silva
+// ===============================
 
-  function updateCountdown() {
-    const now = new Date().getTime();
-    const distance = targetDate - now;
-
-    if (distance <= 0) {
-      el.innerHTML = "Já lançado ✅";
-      return;
-    }
-
-    const days = Math.floor(distance / (1000 * 60 * 60 * 24));
-    const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
-    el.innerHTML = `${days}d ${hours}h restantes`;
+// Mostrar o botão "Voltar ao topo" quando o usuário rolar a página
+window.onscroll = function () {
+  const btn = document.getElementById("btnTopo");
+  if (document.documentElement.scrollTop > 100) {
+    btn.style.display = "block";
+  } else {
+    btn.style.display = "none";
   }
+};
 
-  updateCountdown();
-  setInterval(updateCountdown, 1000 * 60 * 60);
+// Função para rolar suavemente até o topo
+document.getElementById("btnTopo").addEventListener("click", function () {
+  window.scrollTo({
+    top: 0,
+    behavior: "smooth"
+  });
 });
 
-// ====== ANIMAÇÃO DE REVELAR AO ROLAR ======
-function reveal() {
-  const reveals = document.querySelectorAll('.reveal');
+// ===============================
+// 🌙 Alternar entre modo escuro e claro
+// ===============================
+const toggleTema = document.getElementById("toggleTema");
 
-  for (let i = 0; i < reveals.length; i++) {
-    const windowHeight = window.innerHeight;
-    const elementTop = reveals[i].getBoundingClientRect().top;
-    const revealPoint = 100;
-
-    if (elementTop < windowHeight - revealPoint) {
-      reveals[i].classList.add('active');
-    } else {
-      reveals[i].classList.remove('active');
-    }
-  }
+// Verifica se há um tema salvo no navegador
+if (localStorage.getItem("tema") === "dark") {
+  document.body.classList.add("dark-mode");
+  toggleTema.textContent = "☀️";
 }
 
-window.addEventListener('scroll', reveal);
-reveal(); // Executa no carregamento inicial
+// Ao clicar no botão, troca o tema
+toggleTema.addEventListener("click", () => {
+  document.body.classList.toggle("dark-mode");
+
+  if (document.body.classList.contains("dark-mode")) {
+    toggleTema.textContent = "☀️";
+    localStorage.setItem("tema", "dark");
+  } else {
+    toggleTema.textContent = "🌙";
+    localStorage.setItem("tema", "light");
+  }
+});
+
+// ===============================
+// ✨ Efeito suave de entrada dos cards
+// ===============================
+document.addEventListener("DOMContentLoaded", () => {
+  const cards = document.querySelectorAll(".card");
+  cards.forEach((card, index) => {
+    card.style.opacity = 0;
+    card.style.transform = "translateY(40px)";
+    setTimeout(() => {
+      card.style.transition = "all 0.6s ease";
+      card.style.opacity = 1;
+      card.style.transform = "translateY(0)";
+    }, 200 * index);
+  });
+});
